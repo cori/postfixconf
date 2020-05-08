@@ -43,7 +43,7 @@ do
 
     echo -n <<EOF Confirm $USERNAME's Password: 
     (Note, if you're using GMail with 2-Step Verification enabled you'll need to use an app-specific password: https://myaccount.google.com/apppasswords
-    EOF
+EOF
     read -s CONFIRM_PASSWORD
 
     echo ""
@@ -87,7 +87,7 @@ function configure_gmail() {
     echo <<EOF NOTE! For GMail you must enable less secure apps for postfix to work: https://www.google.com/settings/security/lesssecureapps.
     
     Alternatively if you're using GMail and have 2-Step Verification enabled you'll need to use an app-specific password: https://myaccount.google.com/apppasswords
-    EOF
+EOF
 }
 
 function configure_yahoo() {
