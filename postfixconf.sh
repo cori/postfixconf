@@ -41,8 +41,8 @@ do
 
     echo ""
 
-    echo -n "Confirm $USERNAME's Password: \
-    (Note, if you're using GMail with 2-Step Verification enabled you'll need to use an app-specific password: https://myaccount.google.com/apppasswords"
+    echo -n "Confirm $USERNAME's Password:"
+    echo -n "(Note, if you're using GMail with 2-Step Verification enabled you'll need to use an app-specific password: https://myaccount.google.com/apppasswords"
     read -s CONFIRM_PASSWORD
 
     echo ""
@@ -83,8 +83,8 @@ function configure_smtp() {
 function configure_gmail() {
     echo "Configuring gmail smtp"
     configure_smtp
-    echo "NOTE! For GMail you must enable less secure apps for postfix to work: https://www.google.com/settings/security/lesssecureapps. \    
-    Alternatively if you're using GMail and have 2-Step Verification enabled you'll need to use an app-specific password: https://myaccount.google.com/apppasswords"
+    echo "NOTE! For GMail you must enable less secure apps for postfix to work: https://www.google.com/settings/security/lesssecureapps."
+    echo "Alternatively if you're using GMail and have 2-Step Verification enabled you'll need to use an app-specific password: https://myaccount.google.com/apppasswords"
 }
 
 function configure_yahoo() {
@@ -140,9 +140,8 @@ spin 10
 
 echo "You are done. Check $USERNAME's email."
 
-echo -n "Do you want to tail /var/log/mail.log [y|n]:"
+echo -n "Do you want to check your mail logs? [y|n]:"
 read input
 if [[ "$input" == "y" ]]; then
-    echo "Tailing /var/log/mail.log (ctrl-c to quit)"
-    tail -f /var/log/mail.log
+    log show --predicate 'process == "mail"' --info --debug --style syslog
 fi
