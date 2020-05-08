@@ -37,7 +37,7 @@ do
     let ATTEMPT=ATTEMPT+1 
 
     echo "$USERNAME's Password: "
-    echo -n "(Note, if you're using GMail with 2-Step Verification enabled you'll need to use an app-specific password: https://myaccount.google.com/apppasswords"
+    echo "(Note, if you're using GMail with 2-Step Verification enabled you'll need to use an app-specific password: https://myaccount.google.com/apppasswords")
     read -s PASSWORD
 
     echo ""
